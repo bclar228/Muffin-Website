@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Muffin Bakery Shop-Menu Page</title>
+        <link rel="stylesheet" href="css/shop-menu.css">
+        <link rel="stylesheet" href="css/style.css">
+    </head>
+    <body>
+        <!-- This section contains the navigation bar -->
+        <nav class="bar">
+            <ul class="nav-list">
+                <li class="nav-item"><a href="index.html">HOME</a></li>
+                <li class="nav-item"><a href="recipes.html">RECIPES</a></li>
+                <li class="nav-item-current-page"><a href="shop-menu.html">SHOP-MENU</a></li>
+                <li class="nav-item"><a href="contact.html">CONTACT</a></li>
+                <li class="nav-item"><a href="shopping-cart.html">CART</a></li>
+            </ul>
+        </nav>
+        <!-- This section contains the image, and the Delicious banner with a products carousel-->
+        <main class="shop-menu-content">
+            <!-- We split the webpage into two, an image on the left, along with 
+                interactive content on the right -->
+            <figure class="picture"></figure>
+            <section class="coffee-background">
+                <!-- In this section, we have a "DELICIOUS" banner as well as an interactive
+                carousel to display products and a button to go to the All Items webpage-->
+                <h1 class="delicious">DELICIOUS</h1>
+                <figure class="muffin-picture"></figure>
+                <div class="buttons">
+                    <button class="left-button"></button>
+                    <button class="right-button"></button>
+                </div>
+                <button class="view-products-button" onclick="location.href='all-items.html';">VIEW PRODUCTS</button>
+            </section>
+        </main>
+        <!-- This section contains the button to go to the next webpage, Contact -->
+        <aside class="button3">
+            <!--onclick="location.href='contact.html';": This attribute adds JavaScript functionality to the button. The onclick event is triggered when the user clicks 
+            on the button. The code location.href='contact.html'; inside the onclick attribute tells the web browser to navigate to the "contact.html" page. 
+            Essentially, it changes the current URL of the browser to the specified URL ('contact.html'), which loads that page.-->
+            <button class="circle" onclick="location.href='contact.html';"></button>
+        </aside>
+        <script src="js/shop-menu.js"></script>
+    </body>
+</html>

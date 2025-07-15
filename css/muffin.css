@@ -1,0 +1,193 @@
+/* CSS reset */
+body {
+    margin: 0;
+    padding: 0;
+}
+
+/* We set the container to have display flex, and set its children (the header,
+image with details, description, you might also like and footer) to stack in 
+a column, and be aligned from the top centre. */
+.muffin-wrapper {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+}
+
+/* We set the top margin to be significantly large enough so the content isn't
+covered by the navigation bar. */
+.muffin-header {
+    margin-top: 10vh;
+}
+
+/* We set the product table to have its display as flex, with flex-direction
+as column so that way its children elements stack in a column and are centred.
+Then we set a gap so that way it is not stacked right on top of each other. Then
+we style accordingly. */
+.product-table {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+    border: 1px solid #e8b4b8;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    width: 250px;
+    height: 200px;
+    font-size: clamp(12px, 2vw, 20px);
+    color: #A49393;
+}
+
+/* Style the elements accordingly. */
+.size, .quantity, .add-to-cart {
+    width: calc(100% - 40px); 
+    border: 1px solid #e8b4b8;
+    background-color: transparent;
+    padding: 10px;
+    font-size: clamp(12px, 2vw, 15px);
+    font: Arial, sans-serif;
+    box-sizing: border-box; 
+    color:#A49393;
+}
+
+/* We set the width to be 100% so that way it takes the entire width of its parent 
+container, as well as set the bottom border. */
+.price {
+    width: 100%;
+    font-size: clamp(12px, 3vw, 18px);
+    border-bottom: 1px solid #e8b4b8;
+}
+
+/* We set the display as flex so that way we can add spaces between the 
+elements. */
+.quantity {
+    display: flex;
+    justify-content: space-between;
+    border: none;
+}
+
+/* We style the buttons so that way they are visually appealing. */
+.quantity-button-minus,
+.quantity-button-plus {
+    color: #A49393;
+    background-color: transparent;
+    border: 1px solid #e8b4b8;
+    width: 25px;
+    height: 25px;
+    text-align: center;
+    cursor: pointer;
+}
+
+.add-to-cart {
+    background-color: transparent;
+    border: 1px solid #e8b4b8;
+    cursor: pointer;
+    padding: 10px;
+    white-space: nowrap;
+}
+
+.muffin-image {
+    width: 20vw;
+    max-width: 250px;
+    height: 200px;
+}
+
+/* We set the width of this container to be 80% so that way it doesn't take
+up all the space of the screen. This is to make it more visually appealing.
+Furthermore, we set the display to flex, and do space-around so that way
+there is gap between image and the table. */
+.muffin-details-and-picture {
+    display: flex;
+    width: 80%;
+    justify-content: space-around;
+    align-items: center;
+}
+
+/* Like before, we set the description to have a width of 80% to make the 
+design cohesive. We also set the a top margin so that way there is space
+between these two elements. */
+.muffin-description {
+    width: 80%;
+    text-align: center;
+    font-size: clamp(12px, 2vw, 25px);
+    margin-top: 5vw;
+    color: #A49393;
+}
+
+/* We set the width to be the same as before. Also we set the top and bottom
+margins to be significantly big enough so that way there is space between the
+You Might Also Like sections and the description and footer sections. We set
+the display to flex so that way the children elements (the header and the images
+with their details) are stacked in a column and centred. */
+aside {
+    width: 80%;
+    margin: 100px 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+/* We set up the images. */
+.other-options-catalogue section:nth-child(1) {
+    background-image: url("../images/chocolate-muffin.jpg");
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center center;
+    width: 20vw;
+    min-width: 100px;
+    max-width: 300px;
+    height: 200px;
+}
+
+.other-options-catalogue section:nth-child(2) {
+    background-image: url("../images/banana-muffin.jpg");
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center center;
+    width: 20vw;
+    min-width: 100px;
+    max-width: 300px;
+    height: 200px;
+}
+
+.other-options-catalogue section:nth-child(3) {
+    background-image: url("../images/apple-muffin.jpg");
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center center;
+    width: 20vw;
+    min-width: 100px;
+    max-width: 300px;
+    height: 200px;
+}
+
+/* This is the actual images. We want there to be a gap between
+the images so we set the gap. */
+.other-options-catalogue {
+    display: flex;
+    gap: 10px;
+    font-size: min(max(0.7rem, 1.5vw), 2rem); 
+}
+
+/* This is the image with the name header and then price. We want them
+to be stacked in a column, with the price and name appearing to the left,
+so we set the display to flex accordingly. */
+.options-wrapper {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+}
+
+/* We make the labels visually appealing. */
+.catalogue-label, .catalogue-price-tag {
+    background-color: white;  /* White background */
+    padding: 5px 10px;  /* Padding around text */
+    margin: 0;  /* Remove default margins */
+    font-size: clamp(12px, 2vw, 20px);  
+}
+
+/* This is so the table reduces in size on smaller screens. */
+@media (max-width: 600px) {
+    .product-table {
+        width: 200px;
+    }
+}

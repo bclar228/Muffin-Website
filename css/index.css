@@ -1,0 +1,107 @@
+/* Reset and setup. We set the background colour to white since the label for the image
+is white and we want to make it appear as though it is part of the background. */
+html, body {
+    margin: 0;
+    padding: 0;
+    font-family: 'Arial', sans-serif;
+    background-color: white;
+}
+
+/* Code for image part of the home page */
+.muffin-bakery-introduction {
+    display: flex;
+    flex-direction: column; /* Arrange children vertically */
+    min-height: 100vh; /* Minimum height to prevent the container from becoming too small */
+}
+
+/* We set image-section to take up twice the space as content-section,
+even though when we do this it makes it appear equal, which is what
+we want. */
+.image-section {
+    flex: 2; 
+}
+
+.content-section {
+    flex: 1;
+}
+
+/* We set up the image in its div element, as well as set its children
+elements to be at the bottom right through flex (so that way the label
+appears there). */
+
+.image-section {
+    background: url("../images/muffin.jpg");
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center center;
+    display: flex;
+    align-items: flex-end;
+    justify-content: flex-start;
+}
+
+/* We set up padding around the label, so its not just behind the text
+that is white but also surrounding area, making it appear as a label. 
+We also set the margin as 0 to override the default margin and 
+prevent spacing from the label and the bottom of the image. */
+.label {
+    background-color: white;
+    font-size: min(max(1.5rem, 5vw), 2.5rem);
+    padding: 0.5em 0.6em;
+    color: #A49393;
+    margin: 0;
+}
+
+/* Code for content part and button of the home page */
+/* We set the display to flex to make its children elements
+appear stacked in a column from the top of its container at
+the centre. */
+.content-section {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: center;
+}
+
+/* We set the flex-growth property to 1 and later set the other
+element that shares this container as a parent to 1 so they take
+up equal room. Then we set its display to flex so that way we
+can display its children (the heading and paragraph) stacked
+on top of each other in the centre of the its container. */
+.content {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.content h1 {
+    font-size: min(max(1.5rem, 5vw), 2.5rem);
+}
+
+/* We set the right and left margins so that way there is space
+between the text and the edges of the window, as well as the align
+the text to the centre. */
+.paragraph {
+    margin-right: 2vw;
+    margin-left: 2vw;
+    text-align: center;
+    font-size: clamp(10px, 3vw, 20px);
+}
+
+/* We do as we said earlier with flex and also set its child elements
+to be in the centre of its element. We also set the width to 100% otherwise
+it will just be the width of the button of itself and there will be no way to
+centre the button. */
+.button {
+    flex: 1;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.header {
+    margin: 0;
+}
+

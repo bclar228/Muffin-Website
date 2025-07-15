@@ -1,0 +1,157 @@
+/* We want the same font applied to all the text. Therefore, we set the font 
+family in body, where all the body's children will inherit the font-family. */
+body {
+    font-family: 'Arial', sans-serif;
+    /* We reset the margin and padding because otherwise there will 
+    be a default margin of 8px, which will affect the navigation bar, 
+    as there will be a small amount of space at the end 
+    even though it is later set to span 100% of the width of its parent container. */
+    margin: 0;
+    padding: 0;
+}
+
+/* Code for the main section of the recipes webpage */
+.recipes {
+    /* We want to display the children elements of recipes vertically in a column
+    at the centre of the webpage. Hence, we set the flex-direction to column, which means
+    the container's children will be arranged vertically in a column. Then we set the
+    justify-content property (which aligns the flex container's children along the main
+    axis, which is vertical in this case due to flex-direction: column) to centre,
+    so that the children will be vertically centred. Then we set the align-items property,
+    which is aligns the flex container's children along the cross axis (which is horizontal due to
+    flex-direction: column), to centre, so they will be horizontally centred. */
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.recipes-collection {
+    width: 100%;
+    display: flex;
+    /* Allow the items to wrap onto multiple lines when they 
+    overflow the width of the container */
+    flex-wrap: wrap; 
+    justify-content: space-around; /* Distribute space around items */
+    /* These properties set the left and right padding of the element to 10% 
+    of its width. This creates space on the left and right sides of the element, helping
+    to align the content in a centred manner while maintainining some spacing on the edges */
+    padding-left: 10%;
+    padding-right: 10%;
+    /* This makes the width and height include the padding and border, making it easier to
+    size elements consistently. */
+    box-sizing: border-box;
+    /* This creates consistent spacing between items, which adjusts based on 
+    the viewport width. */
+    gap: 1vw; 
+    /* Add some dynamic spacing below the navigation bar. which ensures top 
+    padding is at most 5rem and at least 4rem */
+    padding-top: max(min(10%, 5rem), 4rem); 
+}
+
+.button2 {
+    /* This ensures that there is space below and above the button. While there is already space between the 
+    recipes grid and the button due to a margin-bottom property being applied to each element in the recipes grid,
+    there is nothing to add spacing between the button and the end of the screen. So this is to do that. */
+    margin-top: 20px;
+    margin-bottom: 20px;
+}
+
+/* Base styling for each recipe item */
+.chocolate-muffins-collection,
+.banana-muffins-collection,
+.apple-muffins-collection,
+.carrot-muffins-collection,
+.blueberry-muffins-collection,
+.pumpkin-muffins-collection {
+    /* The flex-basis (initial size) of each item is calc(33.333% - 1rem), which sets each item to roughly
+    one-third of the container width, accounting for the gap between items (which is why we minius 1rem). 
+    Then we set the flex-grow to 0, so that the items will not grow larger than their flex-basis even if
+    extra space is available in the container. Then we set the flex-shrink to 1 so that the items will shrink
+    proportionally if the container is too small to fit all items at their flex-basis size. */
+    flex: 0 1 calc(33.333% - 1rem);
+    display: flex;
+    /* The align-self property in CSS all allows you to override the aliignment of an i
+    ndividual flex item     along the cross axis. The value auto means that the align-self 
+    property will follow the value of the align-items property of the parent flex container. */
+    align-self: auto;
+    flex-direction: column; /* Stacks label vertically */
+    /* Aligns the label to the bottom of the container (recall that when 
+    flex-direction is set as column, 
+    justify-content is made as the vertical axis*/
+    justify-content: flex-end; 
+    margin-bottom: 2rem; /* Space between rows */
+    /*This ensures that the background image will not be repeated. It will be displayed only once */
+    background-repeat: no-repeat; 
+    /*The value cover scales the background image to cover the entire container,
+     maintaining its aspect ratio. */
+    background-size: cover; 
+    /* The value center center centers the background image both
+     horizontally and vertically within its container */
+    background-position: center center;
+    /* Since the parent element of this element has an implicit flex-direction of row, this means that
+    the flex-basis calculated earlier will set the width. This means we only need to set the height! */
+    height: min(20vw, 15rem);
+    position: relative; /* Position relative to allow absolute positioning inside */
+    border-radius: 15px; /* This gives the rounded edges look */
+    transition: box-shadow 0.3s ease; /* This creates a smooth transition for the box-shadow */
+}
+
+.chocolate-muffins-collection:hover,
+.banana-muffins-collection:hover,
+.apple-muffins-collection:hover,
+.carrot-muffins-collection:hover,
+.blueberry-muffins-collection:hover,
+.pumpkin-muffins-collection:hover {
+    box-shadow: 0 4px 8px grey; 
+}
+
+/* Apply the background image to each item accordingly */
+.chocolate-muffins-collection { 
+    background-image: url("../images/chocolate-muffin.jpg"); 
+}
+.banana-muffins-collection { 
+    background-image: url("../images/banana-muffin.jpg"); 
+}
+.apple-muffins-collection { 
+    background-image: url("../images/apple-muffin.jpg"); 
+}
+.carrot-muffins-collection { 
+    background-image: url("../images/carrot-muffin.jpg"); 
+}
+.blueberry-muffins-collection { 
+    background-image: url("../images/blueberry-muffin.jpg"); 
+}
+.pumpkin-muffins-collection { 
+    background-image: url("../images/pumpkin-muffin.jpg"); 
+}
+
+.recipes-label {
+    text-align: center; /* Center the text horizontally */
+    font-weight: bold; /* Make the label text bold */
+    background: #EED6D3;
+    padding: 0.5vw 0; /* Adds padding top and bottom */
+    border-bottom-left-radius: 15px;
+    border-bottom-right-radius: 15px;
+    /* This prevents space around the label, making the label stay at the bottom of its container. */
+    margin: 0; 
+    /* Makes the text resize dynamically, with a minimum value of 12px and maximum value of 25px */
+    font-size: clamp(12px, 2vw, 25px); 
+}
+
+/* Style for every second label */
+.recipes-collection article:nth-child(2n) .recipes-label {
+    background: #A49393; /* Different background color for every second label */
+}
+
+/* Media query for smaller screens */
+@media (max-width: 600px) {
+    .chocolate-muffins-collection,
+    .banana-muffins-collection,
+    .apple-muffins-collection,
+    .carrot-muffins-collection,
+    .blueberry-muffins-collection,
+    .pumpkin-muffins-collection {
+        flex: 0 1 calc(50% - 1rem); /* Now only 2 items will fit per row *//
+    }
+}

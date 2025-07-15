@@ -1,0 +1,223 @@
+/* Reset and setup */
+html, body {
+    margin: 0;
+    padding: 0;
+    font-family: 'Arial', sans-serif;
+}
+
+/* We set the display to flex as we want the children (the image and
+the interactive content) to be displayed from left to right. */
+.shop-menu-content {
+    height: 100vh;
+    display: flex;
+    justify-content: flex-start;
+}
+
+/* We make it so that both children share equal space by setting flex-growth
+to 1. This effectively the same as setting the width to 50%. */
+.picture,
+.coffee-background {
+    flex: 1;
+}
+
+/* We set up the picture on the right and reset the margin so
+that way there is no white space at the left and right edges
+of the container. */
+.picture {
+    background-image: url("../images/muffins.jpg");
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center center;
+    margin: 0;
+}
+
+/* We set the display to flex so that way the children stack
+vertically, as well as start from the top of the screen (not the
+very top, or else the navigation bar will cover some content - we
+use a margin on the element to fix this) and be in the centre horizontally. */
+.coffee-background {
+    background-color: #A49393;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    flex-direction: column;
+}
+
+/* We dynamically set the font size, with a minimum of 2.5rem and 
+a maximum of 5rem. Additionally, we reset the margins then set the 
+top margin to prevent the navigation bar from covering the banner. */
+.delicious {
+    font-weight: bold;
+    color: white;
+    font-size: min(max(2.5rem, 5vw), 5rem);
+    margin: 0;
+    margin-top: 80px;
+}
+
+/* We set the picture up that will change based on the index from
+the list of pictures in the JavaScript file - which is why there
+is no url here, as that is set up there. We also set up the height
+and width to be 30% of the window's height. */
+.muffin-picture {
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center center;
+    height: 30vh;
+    width: 30vh;
+}
+
+/* We dynamically set up the view products button (width and height),
+as well set the transition for the background colour so that is smooth. */
+.view-products-button {
+    background-color: #EED6D3;
+    border-color: white;
+    width: min(30vw, 20rem);
+    height: min(15vh, 5rem);
+    text-align: center;
+    text-decoration: none;
+    font-size: clamp(12px, 2vw, 35px);
+    border-radius: 8px;
+    transition: background-color 0.3s;
+    margin-top: 6vh;
+}
+
+/* We change the colour of the button when the mouse hovers over it as and darker
+even more when it is clicked through pseudo classes, as well as move it down by
+2px when it is clicked. */
+.view-products-button:hover {
+    background-color: #D6ADAA;
+}
+
+.view-products-button:active {
+    background-color: #BE9A97;
+    transform: translateY(2px); 
+}
+
+/* We have two buttons, so we set the display to flex, so that way we can
+set the buttons to start from centre left of the container, and we make the
+second button have a gap after the first by setting a margin by setting the gap
+property on the display, but the same effect could be achieved by setting
+a right margin on the first button and was what was first done. */
+.buttons {
+    display: flex;
+    justify-content: flex-start;
+    gap: 80px;
+}
+
+/* This is where it gets complicated - we use pseudo elements here. Basically,
+what has been done is we have the circle background--that is the left button
+class, and then we use the pseudo-element to draw a square on it. This could
+be either ::before or ::after, it doesn't really matter since there is no content
+so it goes in the centre (this is because of display: flex centre, and we could have
+just as easily used absolute positioning to achieve the same result). 
+Then we only put borders on the two lines that we need to make 
+the arrow after we have rotated the square by 45 degrees (so that way it is 
+pointing in the right direction). And that's it, we have our arrow button! */
+.left-button {
+    width: min(10vw, 80px); /* Width grows with viewport, but not beyond 80px */
+    height: min(10vw, 80px); /* Height grows with viewport, but not beyond 80px */
+    min-width: 25px; /* Minimum width of the circle */
+    min-height: 25px; /* Minimum height of the circle */
+    background-color: #EED6D3; /* Pink background color */
+    border-radius: 50%; /* Rounds the button into a circle */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border: min(0.5vw, 1px) solid white; /* White border, 0.5vw or max of 1px */
+    box-shadow: 0px 1px 2px rgba(0, 0, 0, 0.2); /* Box shadow for 3D effect */
+    cursor: pointer; /* Changes the cursor to a pointer to indicate it's clickable */
+    outline: none; /* Removes default focus outline */
+    font-size: min(max(2vw, 1rem), 3rem);
+    transition: background-color 0.3s; /* Smooth transition for background color */
+} 
+
+/* Explained above */
+.left-button::after {
+    content: '';
+    display: block;
+    /* Set the arrow size to scale with the button size using vw units, but constrain between certain values */
+    width: min(max(2vw, 10px), 20px); /* Arrow width scales with viewport width */
+    height: min(max(2vw, 10px), 20px); /* Arrow height scales with viewport width */
+    border-top: min(0.5vw, 3px) solid black; /* Arrow top border scales with viewport width */
+    border-left: min(0.5vw, 3px) solid black; /* Arrow left border scales with viewport width */
+    transform: rotate(-45deg);
+}
+
+/* Here we add the same interactive pseudo classes the same as the view products button */
+.left-button:hover {
+    background-color: #D6ADAA;
+}
+
+.left-button:active {
+    background-color: #BE9A97;
+    transform: translateY(2px); /* Slightly shift the button down when clicked */
+}
+
+/* The right button is made the exact same way as the left button, except we rotate
+it a different way and make different borders visible. */
+.right-button {
+    width: min(10vw, 80px); 
+    height: min(10vw, 80px); 
+    min-width: 25px; 
+    min-height: 25px; 
+    background-color: #EED6D3; 
+    border-radius: 50%; 
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border: min(0.5vw, 1px) solid white;
+    box-shadow: 0px 1px 2px rgba(0, 0, 0, 0.2); 
+    cursor: pointer; 
+    outline: none; 
+    font-size: min(max(2vw, 1rem), 3rem);
+    transition: background-color 0.3s; 
+} 
+
+.right-button::after {
+    content: '';
+    display: block;
+    width: min(max(2vw, 10px), 20px); 
+    height: min(max(2vw, 10px), 20px); 
+    border-right: min(0.5vw, 3px) solid black; 
+    border-top: min(0.5vw, 3px) solid black; 
+    transform: rotate(45deg);
+}
+
+.right-button:hover {
+    background-color: #D6ADAA;
+}
+
+.right-button:active {
+    background-color: #BE9A97;
+    transform: translateY(2px); 
+}
+
+/* We make the button to go to the next page fixed as we want
+it to be the centre at the bottom on top of the content of the page. */
+.button3 {
+    position: fixed; 
+    left: 50%; /* Center horizontally */
+    bottom: 10%; /* Align to bottom */
+    transform: translateX(-50%); /* Center the element by its own width */
+}
+
+/* Media query for smaller screens. Essentially, what we do here
+is make it so that the left image doesn't show and it is only
+the main content that shows on smaller screens otherwise
+it will be too tight of a fit and will look bad. */
+@media (max-width: 600px) {
+    .picture {
+        display: none;
+        width: 0vw;
+    }
+
+    .coffee-background {
+        width: 100%;
+    }
+
+    /* We make it go to the very bottom (although it still has a bottom margin)
+    so that way it doesn't overlap with important content. */
+    .button3 {
+        bottom: 0%;
+    }
+}

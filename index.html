@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Muffin Bakery Home Page</title>
+        <link rel="stylesheet" href="css/index.css">
+        <link rel="stylesheet" href="css/style.css">
+    </head>
+    <body>
+        <!-- This is the code for the nav bar, which is consistent across every webpage -->
+        <nav class="bar">
+            <ul class="nav-list">
+                <li class="nav-item-current-page"><a href="index.html">HOME</a></li>
+                <li class="nav-item"><a href="recipes.html">RECIPES</a></li>
+                <li class="nav-item"><a href="shop-menu.html">SHOP-MENU</a></li>
+                <li class="nav-item"><a href="contact.html">CONTACT</a></li>
+                <li class="nav-item"><a href="shopping-cart.html">CART</a></li>
+            </ul>
+        </nav>
+        <!-- This is the actual content of the webpage -->
+        <div class="muffin-bakery-introduction">
+            <!-- This is the image section with its label of the webpage -->
+            <section class="image-section">
+                <h1 class="label">The Muffin Bakery</h1>
+            </section>
+            <!-- This is the main content of the webpage, with the text and button appearing here -->
+            <main class="content-section">
+                <article class="content">
+                    <h1 class="header">Our Story</h1>
+                    <p class="paragraph">Nestled in the heart of our beloved town, the story of our muffin bakery began with a simple dream shared between two lifelong friends. 
+                    Inspired by our cherished childhood memories of baking with our grandparents and fueled by a passion for bringing joy to people's lives 
+                    through food, we embarked on a journey to create a bakery that felt like home. After years of perfecting our craft, experimenting with 
+                    flavors, and sourcing the finest loc., our dream finally materialized into the cozy, aromatic haven that is now the town's go-to spot 
+                    for freshly baked muffins. Our bakery stands as a testament to the power of friendship, the warmth of community, and the universal love 
+                    for comfort food. Each muffin we bake is a piece of our story, lovingly prepared to bring a smile to your face and warmth to your heart.</p>
+                </article>
+                <!-- downwards arrow button that leads to the next webpage goes here -->
+                <aside class="button">
+                    <!--onclick="location.href='recipes.html';": This attribute adds JavaScript functionality to the button. The onclick event is triggered when the user clicks 
+                        on the button. The code location.href='recipes.html'; inside the onclick attribute tells the web browser to navigate to the "recipes.html" page. 
+                        Essentially, it changes the current URL of the browser to the specified URL ('recipes.html'), which loads that page.-->
+                    <button class="circle" onclick="location.href='recipes.html';"></button>
+                </aside>
+            </main>
+        </div>
+    </body>
+</html>

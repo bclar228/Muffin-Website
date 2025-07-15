@@ -1,0 +1,240 @@
+/* Reset and setup the font so that its the same for all. */
+html, body {
+    margin: 0;
+    padding: 0;
+    font-family: 'Arial', sans-serif;
+}
+
+.all-items-image-section {
+    /* This sets the background image of the element. The image is 
+    loaded from a relative path, which goes up one directory level 
+    and then into the images folder to retrieve 
+    all-items-background.png. */
+    background-image: url("../images/all-items-background.png");
+    /* This property ensures that the background image does not repeat. 
+    Without this, the default behavior would be for the image to tile 
+    (repeat both horizontally and vertically) to fill the element's 
+    entire background area. */
+    background-repeat: no-repeat;
+    /* This sets the size of the background image to cover the 
+    entire area of the element. It will scale the image, either 
+    up or down, to ensure that it covers all available space.
+    The aspect ratio of the image is preserved, so some parts 
+    of the image might be clipped if the element's aspect ratio 
+    differs from that of the image. */
+    background-size: cover;
+    /* This aligns the background image at the center of the 
+    element both horizontally (first center) and vertically 
+    (second center). This is useful for ensuring that the 
+    key parts of an image are visible and centered, 
+    especially when combined with background-size: cover. */
+    background-position: center center;
+    /* We set the display to flex for its child elements 
+    and set the flex items along the cross axis (vertically)
+    to the bottom of the container (because we set align-items
+    to flex-end). */
+    display: flex;
+    align-items: flex-end;
+    /* This sets the height of the element to 28% of the
+    viewport height. This allows for dynamic resizing. */
+    height: 28vh;
+}
+
+.all-items-label {
+    /* Sets the background color of the element 
+    to white. */
+    background-color: white;
+    /* Dynamically calculates the font size based on 
+    the viewport width (3vw) with an additional 0.3rem. 
+    This makes the font size responsive, scaling with 
+    the viewport size. */
+    font-size: calc(3vw + 0.3rem);
+    /* Sets the padding around the content of the 
+    element to 1% of the viewport's width, providing 
+    spacing that adjusts with the size of the viewport. */
+    padding: 1vw;
+    /* Sets the text color to a light brown. */
+    color: #A49393;
+    /* Reset the default margins for h1. */
+    margin: 0;
+    /* Reset the default font weight (bold) for h1 */
+    font-weight: normal;
+}
+
+.muffins-catalogue-container {
+    /* This sets its children (the drop down menu and the
+    grid of elements) to have its display as flex. We 
+    define the main axis of the flex container as vertical,
+    meaning that child elements will stack vertically, from
+    top to bottom. Align-items becomes the hoizontal axis
+    since the flex-direction is column, and we set
+    it to flex-end to align to the right side of the container
+    (so that the drop down menu appears to the right, but not
+    at the very right thanks to the margin around the element;
+    it doesn't matter for the grid of elements because they
+    expand to fill the entire width of the container and are
+    stacked below the dropdown menu because of flex-direction
+    column). */
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    justify-content: center;
+    /* This sets the margin to be 0 for the top and
+    bottom margins, and 3 percent of the viewport width for
+    the left and right margins. */
+    margin: 0 3vw;
+}
+
+#muffin-select {
+    /* Sets the color of the border to a light 
+    pink shade. */
+    border-color: #f2b6b6;
+    /* Makes the text within the element bold */
+    font-weight: bold;
+    /* Adds padding inside the element. 15px 
+    vertical padding (top and bottom) and 0 
+    horizontal padding (left and right). */
+    padding: 15px 0;
+    /* Sets the top margin of the element to 2% 
+    of the viewport height. */
+    margin-top: 2vh;
+}
+
+.muffins-catalogue {
+    display: flex;
+    /* Allows flex items to wrap onto multiple 
+    lines instead of forcing them to fit on a single line. 
+    This helps in handling overflow of items when the 
+    container doesn't have enough space to fit them 
+    all on one line. This makes it three by three, along with 
+    the flex-basis applied to it below. */
+    flex-wrap: wrap;
+    /* Distributes space around each flex item 
+    along the main axis (horizontally in this case). 
+    This creates equal spacing between the items as well as 
+    equal spacing on the edges of the container. */
+    justify-content: space-around;
+    /* Stretches each flex item to fill the container 
+    along the cross axis (vertically in this case). This 
+    ensures that all child elements have equal height 
+    matching the tallest item. Note that this isn't
+    really necessary since they have all been made to
+    have the same height but in case one of them does
+    change for some reason this is a fallback to handle
+    that case. */
+    align-items: stretch;
+    /* Applies padding inside the container equivalent 
+    to 2% of the viewport width. This is so that the dropdown
+    menu isn't sitting right on top of the grid */
+    padding: 2vw;
+}
+
+/* This targets article elements that are the direct
+children of the an element with the class
+.mufffins-catalogue. */
+.muffins-catalogue > article {
+    /* Sets the initial main size of the flex item before 
+    remaining space is distributed. It calculates to 
+    be one-third of the container's width minus 4% 
+    of the viewport's width, allowing for responsive 
+    adjustment and spacing between items. */
+    flex-basis: calc(33.333% - 4vw); 
+    /* s the margin around each article element to 2% 
+    of the viewport's width, ensuring that the spacing 
+    between items adjusts dynamically with the screen 
+    size. */
+    margin: 2vw; 
+    /* Sets the height of the article elements to 28% 
+    of the viewport's height, making the height 
+    responsive to different screen sizes. */
+    height: 28vh; 
+    display: flex;
+    /* We curve the top two border ends to 10% 
+    of the element's size to give better asethetics. */
+    border-top-left-radius: 10%;
+    border-top-right-radius: 10%;
+    /* This aligns child content to the bottom, so that
+    way the label will be at the bottom of the container. */
+    flex-direction: column;
+    justify-content: flex-end;  
+}
+
+.catalogue-label, .catalogue-price-tag {
+    /* This sets a white background. */
+    background-color: white;  
+    /* This sets padding around the text. */
+    padding: 5px 10px;  
+    /* This removes default margins. */
+    margin: 0;  
+    /* This will ensure it spans the entire 
+    width of the container. */
+    width: 100%;  
+    /* This makes dynamic resizing with min of 12px 
+    and max of 20px. */
+    font-size: clamp(12px, 2vw, 20px);  
+}
+
+/* We want to make the font bold for only the catalogue-label,
+so we have to tag seperately and do this. */
+.catalogue-label {
+    font-weight: bold; 
+}
+
+/* Here we do the same as above, where we set the images to be
+in the centre of its container, cover, and not repeat, and then
+add the specific urls to each container which we have to do seperately. */
+.chocolate-muffin-catalogue, .banana-muffin-catalogue, .apple-muffin-catalogue,
+.carrot-muffin-catalogue, .blueberry-muffin-catalogue, .pumpkin-muffin-catalogue {
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center center;
+}
+
+.chocolate-muffin-catalogue {
+    background-image: url("images/chocolate-muffin.jpg");
+}
+
+.banana-muffin-catalogue {
+    background-image: url("images/banana-muffin.jpg");
+}
+
+.apple-muffin-catalogue {
+    background-image: url("images/apple-muffin.jpg");
+}
+
+.carrot-muffin-catalogue {
+    background-image: url("images/carrot-muffin.jpg");
+}
+
+.blueberry-muffin-catalogue {
+    background-image: url("images/blueberry-muffin.jpg");
+}
+
+.pumpkin-muffin-catalogue {
+    background-image: url("images/pumpkin-muffin.jpg");
+}
+
+/* Here we use the pseudo-class :hover so that when it is 
+triggered it creates a shadow */
+.chocolate-muffin-catalogue:hover, .banana-muffin-catalogue:hover, 
+.apple-muffin-catalogue:hover, .carrot-muffin-catalogue:hover, 
+.blueberry-muffin-catalogue:hover, .pumpkin-muffin-catalogue:hover {
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2); /* Adds shadow */
+    /* This makes a smooth transition for both properties, with 
+    this property defining transitions for the border-color and 
+    box-shadow properties when changes occur (like on hover). 
+    The transition lasts 0.3 seconds and uses the ease timing 
+    function, which starts slowly, accelerates in the middle, 
+    and then slows down again towards the end. */
+    transition: border-color 0.3s ease, box-shadow 0.3s ease; 
+}
+
+/* Media query for smaller screens */
+@media (max-width: 600px) {
+    .muffins-catalogue > article {
+        /* This makes two items per row on smaller screens. */
+        flex-basis: calc(50% - 4vw);  
+        /* This adjustd the height dynamically. */
+        height: 25vh;  
+    }
+}

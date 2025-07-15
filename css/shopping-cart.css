@@ -1,0 +1,231 @@
+/* CSS reset */
+body {
+    margin: 0;
+    padding: 0;
+}
+
+/* We set the minimum height to be 100vh, as well as the display to
+be flex, with children stacked in a column in the centre. This is so
+that when the shopping cart main container does not take up enough space
+to push the footer at the bottom of the screen, it will still grow
+as needed to make this height achievable (flex: 1 is applied later). */
+.shopping-class-wrapper {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+}
+
+/* Main content grows as needed (flex: 1). We set its children (the heading,
+table and buttons) to have the display flex and be stacked in a column
+in the centre of the screen. Furthermore, we set a margin at the top of this
+container so that way the navigation bar does not cover content. We set the
+width to be 100% so that way later the table can take up 80% of the total
+width of the parent container, shopping cart main. */
+.shopping-cart-main {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    margin-top: 50px;
+    font-size: clamp(12px, 2vw, 20px);
+    color: #A49393;
+    width: 100%;
+}
+
+/* We ser the table to be significantly wide enough. */
+.shopping-cart-container {
+    width: 80%;
+}
+
+/* We set the border spacing to be 0 so that way there are no gaps inbetween
+the borders. */
+table {
+    border-spacing: 0;
+    text-align: center;
+}
+
+/* Here, we essentially set the borders of the headings in the table. 
+We only the outside borders and no internal borders, so we do this as
+so. */
+tr th:nth-child(1) {
+    border-left: 5px solid #e8b4b8 !important;
+    border-top: 5px solid #e8b4b8 !important;
+    border-bottom: 5px solid #e8b4b8 !important;
+}
+
+tr th:nth-child(2), tr th:nth-child(3), tr th:nth-child(4) {
+    border-top: 5px solid #e8b4b8 !important;
+    border-bottom: 5px solid #e8b4b8 !important;
+}
+
+tr th:nth-child(5) {
+    border-bottom: 5px solid #e8b4b8 !important;
+    border-top: 5px solid #e8b4b8 !important;
+    border-right: 5px solid #e8b4b8 !important;
+} 
+
+/* This is the class for the image and product text. We set the display
+to flex and have it start at the left in the centre. While the centre
+does not affect the image as it already takes up the entire height of 
+the container, it centre the text after. */
+.col-item {
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+}
+
+/* We set the padding left so that there is spacing between the image
+and the text. */
+.image-details {
+    padding-left: 2.5vw;
+}
+
+/* We set the width and height of the image, while also setting the
+maximum height and width. */
+.col-item-image {
+    width: 20%;
+    height: 20%;
+    max-width: 200px;
+    max-height: 200px;
+}
+
+/* We set the bottom borders to seperate the rows. We do this
+by selecting each column (td) in the row (there are 5 in total)
+and set the bottom border. */
+tr td:nth-child(1), tr td:nth-child(2), tr td:nth-child(3)
+, tr td:nth-child(4), tr td:nth-child(5) {
+    border-bottom: 5px solid #e8b4b8 !important;
+}
+
+/* Remove the bottom border of the last row in the table to make
+it visually appealing. */
+tbody tr:last-child td {
+    border-bottom: none !important;
+}
+
+/* Now, to make the button, we first create the box that the X will be in using
+the pseudo-elements. We set its height and width to appropriate dimensions,
+as well as making its background colour transparent because we only want to see
+the X. With pseudo elements, we essentially create a rectangle, but since its
+height is so small, it appears as a line. We are able to centre the line in
+the centre of the box because we use absolute positioning, where we use relative
+positioning on the parent x-button so that way it uses the absolute positioning
+on x button. We then further shift the line by moving it by 50% of its own width 
+and height (translate(-50%, -50%)). We then rotate both lines by 45 and -45 degrees,
+making them appear as an X. */
+.x-button {
+    display: inline-block;
+    position: relative;
+    width: 30px; 
+    height: 30px;
+    background-color: transparent;
+    border: none;
+    cursor: pointer;
+    outline: none;
+}
+
+.x-button::before, .x-button::after {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 20px;  /* Length of the "X" arms */
+    height: 2px;  /* Thickness of the "X" arms */
+    background-color: #e8b4b8;  /* Color of the "X" */
+}
+
+.x-button::before {
+    transform: translate(-50%, -50%) rotate(45deg);  /* Rotates the arm to form one part of the "X" */
+}
+
+.x-button::after {
+    transform: translate(-50%, -50%) rotate(-45deg);  /* Rotates the arm to form the other part of the "X" */
+}
+
+/* We set the display to flex and make it so that it displays
+at the far right of its row. Furthermore, we set its width
+to be the same as the table, as well as creating a top margin
+so that way it is not directly beneath the table. Then we set
+bottom and top borders. */
+.grand-total {
+    display: flex;
+    justify-content: flex-end;
+    width: 80%;
+    margin-top: 30px;
+    border-top: 5px solid #e8b4b8;
+    border-bottom: 5px solid #e8b4b8; 
+}
+
+/* We set the right margin so that way it is not at the very
+end of its container. */
+.grand-total h3 {
+    margin-right: 2vw;
+}
+
+/* We set the width to be 80%, the same as the grand total
+and the table. We also set the display to be flex. We set
+the buttons in the centre of its container horizontally,
+with a gap so they are not touching each other. Furthermore,
+we set a top and bottom margin so there is space between the 
+grand total and the footer sections. */
+.buttons {
+    width: 80%;
+    display: flex;
+    justify-content: center;
+    gap: 8vw;
+    margin: 50px 0;
+}
+
+/* We set the stying of the buttons on the webpage to make them 
+visually appealing. */
+.checkout-button,
+.shop-button {
+    padding: 10px 0;
+    min-width: 150px;
+    min-height: 3vw;
+    background-color: transparent;
+    border: 3px solid #e8b4b8;
+}
+
+/* This includes the empty cart message as well as the button to
+return shopping. We set its display for none until we know that
+it is necessary through the js file, which will later turn into
+flex when added, and so we stack the items in a column and in the
+centre both horizontally and vertically. The reason for setting
+the position to relative is explained below. */
+.empty-cart-message {
+    position: relative;
+    bottom: 15vh;
+    display: none;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+/* We set the button to be visually appealing. */
+.shop-button-for-empty-cart {
+    width: 5vw;
+    min-width: 180px;
+    padding: 10px 0;
+    border: 2px solid #e8b4b8;
+    background-color: white;
+}
+
+/* We set a bottom large enough so that way
+on large screens there is no overlap between this heading
+and the text that says that the cart is currently empty. This is because
+the automated margins overlap since we set the message to have a position of relative.
+The reason we set the position of relative is because there is space for
+the shopping-cart-container even though this has been set to display: none.
+So we use relative positioning to correct the additional spacing, but this 
+of course makes it so the automated margins for h1 no longer work properly. */
+h1 {
+    margin-bottom: 40px;
+}
+
+
+
+

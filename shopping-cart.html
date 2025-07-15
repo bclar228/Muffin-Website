@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Muffin Bakery Shopping-Cart Page</title>
+        <link rel="stylesheet" href="css/shopping-cart.css">
+        <link rel="stylesheet" href="css/style.css">
+    </head>
+    <body>
+        <div class="shopping-class-wrapper">
+            <nav class="bar">
+                <ul class="nav-list">
+                    <li class="nav-item"><a href="index.html">HOME</a></li>
+                    <li class="nav-item"><a href="recipes.html">RECIPES</a></li>
+                    <li class="nav-item"><a href="shop-menu.html">SHOP-MENU</a></li>
+                    <li class="nav-item"><a href="contact.html">CONTACT</a></li>
+                    <li class="nav-item-current-page"><a href="shopping-cart.html">CART</a></li>
+                </ul>
+            </nav>
+            <main class="shopping-cart-main">
+                <header class="shopping-cart-header">
+                    <h1>Shopping Cart</h1>
+                </header>
+                <table class="shopping-cart-container">
+                    <thead class="shopping-cart-header-wrapper">
+                        <tr class="shopping-cart-labels">
+                            <th class="shopping-cart-label-product">
+                                <span>PRODUCT</span>
+                            </th>
+                            <th class="shopping-cart-label-price">
+                                <span>PRICE</span>
+                            </th>
+                            <th class="shopping-cart-label-qty">
+                                <span>QTY</span>
+                            </th>
+                            <th class="shopping-cart-label-subtotal">
+                                <span>Subtotal</span>
+                            </th>
+                            <th class="shopping-cart-label-col">
+                                <!--This is to make a column for the X button
+                                that goes in the rows beneath (to remove the muffin
+                                from the user's list of muffins)-->
+                            </th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <!--We keep this empty because we add rows later to it through the js file when
+                        muffin items are added to the muffins list-->
+                    </tbody>
+                </table>
+                <section class="grand-total">
+                    <h3>
+                        <!-- We keep this empty because we will add text to it later for the grand total from 
+                        the corresponding js file when the table shows (when there are actual muffins items in
+                        the list)-->
+                    </h3>
+                </section>
+                <div class="buttons">
+                    <button class="checkout-button">CHECKOUT</button>
+                    <button class="shop-button" onclick="window.location.href='shop-menu.html'">SHOP</button>
+                </div>
+                <section class="empty-cart-message">
+                    <h3>YOUR CART IS CURRENTLY EMPTY</h3>
+                    <button class="shop-button-for-empty-cart" onclick="window.location.href='shop-menu.html'">SHOP NOW</button>
+                </section>
+            </main>
+            <footer class="footer">
+                <section class="contact-footer">
+                    <h3>Contact</h3>
+                    <p>MuffinBakger@gmail.com</p>
+                    <p>07 4444 2222</p>
+                    <p>7 Bakery Street <br>Muffin Queensland<br>4209 Australia</p>
+                </section>
+                <section class="about-us-footer">
+                    <h3>About Us</h3>
+                    <p>At our heartwarming muffin bakery, we knead 
+                        love into every batch, crafting homemade
+                        delights that whisk you away to a world
+                        of comfort and joy with every bite.
+                    </p>
+                </section>
+                <section class="terms-conditions-footer">
+                    <h3>Terms & Conditions</h3>
+                </section>
+            </footer>
+        </div>
+        <script src="js/shopping-cart.js"></script>
+    </body>
+</html>

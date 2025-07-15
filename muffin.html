@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Muffin Bakery Muffin Page</title>
+        <link rel="stylesheet" href="css/muffin.css">
+        <link rel="stylesheet" href="css/style.css">
+    </head>
+    <body>
+        <!-- This section contains the navigation bar -->
+        <nav class="bar">
+            <ul class="nav-list">
+                <li class="nav-item"><a href="index.html">HOME</a></li>
+                <li class="nav-item"><a href="recipes.html">RECIPES</a></li>
+                <li class="nav-item"><a href="shop-menu.html">SHOP-MENU</a></li>
+                <li class="nav-item"><a href="contact.html">CONTACT</a></li>
+                <li class="nav-item"><a href="shopping-cart.html">CART</a></li>
+            </ul>
+        </nav>
+        <div class="muffin-wrapper">
+            <!-- This is the title of the webpage -->
+            <header class="muffin-header">
+                <h1 id="muffin-name">Muffin</h1>
+            </header>
+            <main class="muffin-details-and-picture">
+                <!-- This is the image of the chosen muffin. Note that the image will only appear when
+                you click on the muffin from all-items through JS. -->
+                <img src="needs-to-be-chosen" class="muffin-image" id="muffin-image" alt="An image of a muffin">
+                <!-- This is the product table, containing the price, size and qunatity of the muffin, as
+                well as a button for the user to add to cart. -->
+                <div class="product-table">
+                    <span class="price" id="muffin-price">Price goes here</span>
+                    <select class="size">
+                        <option value="small">SIZE - SMALL</option>
+                        <option value="medium">SIZE - MEDIUM</option>
+                        <option value="large">SIZE - LARGE</option>
+                    </select>
+                    <div class="quantity">
+                        <span class="quantity-label">QUANTITY</span>
+                        <button class="quantity-button-minus">-</button>
+                        <span class="quantity-value">1</span>
+                        <button class="quantity-button-plus">+</button>
+                    </div>
+                    <button class="add-to-cart">ADD TO CART</button>
+                </div>
+            </main>
+            <!-- This is the description of the muffin. -->
+            <div class="muffin-description">
+                <!--We don't use article here because there is no h1-->
+                <p id="muffin-description">Description goes here.</p>
+            </div>
+            <!-- This is an extra section (aside) where the user can view on elements they might also like
+            to further the shopping experience. Note that this isn't actually interactive and is just an idea
+            to be implemented at a later date. -->
+            <aside class="other-options">
+                <h2>You might also like</h2>
+                <div class="other-options-catalogue">
+                    <section class="options-wrapper">
+                        <h3 class="catalogue-label">CHOCOLATE MUFFINS</h3>
+                        <p class="catalogue-price-tag">$8.80</p>
+                    </section>
+                    <section class="options-wrapper">
+                        <h3 class="catalogue-label">BANANA MUFFINS</h3>
+                        <p class="catalogue-price-tag">$5.50</p>
+                    </section> 
+                    <section class="options-wrapper">
+                        <h3 class="catalogue-label">APPLE MUFFINS</h3>
+                        <p class="catalogue-price-tag">$3.60</p>
+                    </section>
+                </div>
+            </aside>
+            <!-- This is the footer section. -->
+            <footer class="footer">
+                <section class="contact-footer">
+                    <h3>Contact</h3>
+                    <p>MuffinBakger@gmail.com</p>
+                    <p>07 4444 2222</p>
+                    <p>7 Bakery Street <br>Muffin Queensland<br>4209 Australia</p>
+                </section>
+                <section class="about-us-footer">
+                    <h3>About Us</h3>
+                    <p>At our heartwarming muffin bakery, we knead 
+                        love into every batch, crafting homemade
+                        delights that whisk you away to a world
+                        of comfort and joy with every bite.
+                    </p>
+                </section>
+                <section class="terms-conditions-footer">
+                    <h3>Terms & Conditions</h3>
+                </section>
+            </footer>
+        </div>
+        <script src="js/script.js"></script>
+    </body>
+</html>

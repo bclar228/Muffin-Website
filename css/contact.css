@@ -1,0 +1,171 @@
+/* Reset and setup the font so that its the same for all. */
+body {
+    font-family: 'Arial', sans-serif;
+    margin: 0;
+    padding: 0;
+}
+
+fieldset {
+    /* We remove the automated borders of the element fieldset. */
+    border: none; 
+}
+
+p {
+    /* Without this, an automatic margin is set, making 
+    the error text too far below the input box. */
+    margin: 0; 
+}
+
+.contact-webpage {
+    /* This sets the form, contact information and footer
+    sections so that it is stacked vertically in the centre
+    one after another. */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.contact {
+    /* Since we will be making the width of its child elements not 100%, 
+    we need to align them horizontally in the centre. This means we need 
+    to use flex-direction: column. */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    color:#A49393;
+    /* Without this margin, the Contact header will be covered by 
+    the navigation bar. */
+    margin-top: 50px; 
+}
+
+.contact-header {
+    /* This will scale with the window size, with a minimum of 2.5rem 
+    and a maximum of 4rem. */
+    font-size: min(max(2.5rem, 5vw), 4rem);
+}
+
+.contact-form {
+    /* We don't want the form to be as big as its parent; therefore we set it to 
+    80vw and our flex styling in the parent element will do the rest. */
+    width: 80vw;
+    /* Ensures the contact form does not exceed a width of 900px, 
+    regardless of the screen size. This is useful to prevent the form from 
+    becoming too wide on large screens. */
+    max-width: 900px;
+    /* This ensures the contact form does not shrink below 300px, 
+    providing a minimum threshold for smaller screens or narrow viewport conditions. */
+    min-width: 300px; 
+    /* This centers the form horizontally within its parent container. The top and 
+    bottom margins are set to 0, and the left and right margins are set 
+    automatically. With auto it automatically calculates the amount of 
+    margin needed on each side of the element to evenly distribute the 
+    available space.  */
+    margin: 0 auto;
+    /* This adds padding inside the form, creating space between the 
+    form content and its borders. This makes the form more visually 
+    appealing and easier to interact with. */
+    padding: 20px;
+    /* This adds a 2px solid border with a light pink color. */
+    border: 2px solid #f2b6b6;
+}
+
+/* We want to display two elemenets on the same row, so we use flex and set up
+the elements so that they start at the left of its parent container. Later
+we use flex: 1 so that way both elements take up half the container. */
+.form-row {
+    display: flex;
+    justify-content: flex-start;
+}
+
+/* We set a right margin on the first child of the container that displays 
+two child elements on the same row so that way there is white space-inbetween. */
+.form-group:first-child {
+    margin-right: 20px;
+}
+
+.form-group {
+    flex: 1; /* Allows the form groups to grow and fill the row */
+    min-width: 120px; /* Prevents the fields from becoming too narrow on small screens */
+}
+
+/* We dynamically change the font size as well as add a margin below the label
+so that way it is not too close to the input box. */
+.form-group label {
+    font-size: min(max(1rem, 8vw), 1.2rem);
+    font-weight: bold;
+    display: block;
+    margin-bottom: 5px;
+}
+
+/* We set up the input box beneath message to be significantly large enough. */
+.form-group textarea {
+    height: 30vh;
+}
+
+/* We set up both the input boxes for the user to fill out their details as well
+as the input box for the user to write their message to have padding and a curved
+border to make it more visually appealing. Additionally, we set the width to cover
+the entire row minus some space for margins. The pink border will later be changed
+when the user clicks submit to either red or green, depending on whether the user
+entered correctly or not. Finally, the paragraph beneath will have added text
+to it when this happens to give feedback on form validation. */
+.form-group input,
+.form-group textarea {
+    width: calc(100% - 20px); 
+    padding: 10px;
+    border: 1px solid #f2b6b6;
+    border-radius: 5px;
+    margin-bottom: 10px; /* Spacing between each input field */
+}
+
+/* We make the button visually appealing */
+button[type="submit"] {
+    padding: 10px 20px;
+    border: none;
+    background-color: #f2b6b6;
+    color: white;
+    cursor: pointer;
+    border-radius: 5px;
+    transition: background-color 0.3s;
+}
+
+/* Hover state for the submit button */
+button[type="submit"]:hover {
+    background-color: #e9a1a1;
+}
+
+/* We do the same measurements for the contact information,
+plus add padding to make it more visually appealing as well as
+add a margin at the top and bottom so that way it is not touching
+the above container and footer. Finally, we make the border thicker
+than the input boxes but the same thickness as the form container
+so that it is visually appealing. */
+.contact-information{
+    color:#A49393;
+    width: 80%;
+    max-width: 900px;
+    min-width: 300px; 
+    border: 2px solid #f2b6b6;
+    text-align: left;
+    padding: 20px;
+    margin: 5vh 0;
+    /* Will scale with the window size, with a minimum of 1rem and a maximum of 1.2rem */
+    font-size: min(max(1rem, 8vw), 1.2rem); 
+    font-weight: bold;
+}
+
+/* Although the error messages have nothing in them at this stage,
+we have the display as none just in case. We make the colour red
+so that way the user knows it is an error message. Text will be added
+through js. */
+#error-message-name,
+#error-message-email,
+#error-message-phone,
+#error-message-message {
+    display: none;
+    color: red;
+    font-size: clamp(10px, 1vw, 15px);
+}
+

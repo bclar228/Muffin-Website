@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Muffin Bakery All Items Page</title>
+        <link rel="stylesheet" href="css/all-items.css">
+        <link rel="stylesheet" href="css/style.css">
+    </head>
+
+    <body>
+        <nav class="bar">
+            <ul class="nav-list">
+                <li class="nav-item"><a href="index.html">HOME</a></li>
+                <li class="nav-item"><a href="recipes.html">RECIPES</a></li>
+                <li class="nav-item"><a href="shop-menu.html">SHOP-MENU</a></li>
+                <li class="nav-item"><a href="contact.html">CONTACT</a></li>
+                <li class="nav-item"><a href="shopping-cart.html">CART</a></li>
+            </ul>
+        </nav>
+        <main class="all-items-section">
+            <section class="all-items-image-section">
+                <h1 class="all-items-label">ALL ITEMS</h1>
+            </section>
+            <div class="muffins-catalogue-container">
+                <!--Note that this can't be section since it doesn't start with a h1 tag.-->
+                <select id="muffin-select">
+                    <option value="best-selling">SORT BY - BEST SELLING</option>
+                    <option value="price-highest-to-lowest">SORT BY - PRICE, HIGHEST TO LOWEST</option>
+                    <option value="price-lowest-to-highest">SORT BY - PRICE, LOWEST TO HIGHEST</option>
+                    <option value="alphabetical-A-Z">SORT BY - ALPHABETICAL, A-Z</option>
+                    <option value="alphabetical-Z-A">SORT BY - ALPHABETICAL, Z-A</option>
+                </select>
+                <div class="muffins-catalogue">
+                    <article class="muffin-catalogue" data-price="8.80" data-popularity="80" data-name="Chocolate Muffins" data-description="Dive into the rich and decadent flavor of our Chocolate Muffins, a true indulgence for all chocolate lovers." id="chocolate">
+                        <h3 class="catalogue-label">CHOCOLATE MUFFINS</h3>
+                        <p class="catalogue-price-tag">$8.80</p>
+                    </article>
+                    <article class="muffin-catalogue" data-price="5.50" data-popularity="70" data-name="Banana Muffins" data-description="Dive into the irresistible charm of our signature Banana Muffins, where each bite is a blissful journey." id="banana">
+                        <h3 class="catalogue-label">BANANA MUFFINS</h3>
+                        <p class="catalogue-price-tag">$5.50</p>
+                    </article>
+                    <article class="muffin-catalogue" data-price="3.60" data-popularity="60" data-name="Apple Muffins" data-description="Savor the delightful sweetness of our Apple Muffins, made with juicy apples and a hint of cinnamon." id="apple">
+                        <h3 class="catalogue-label">APPLE MUFFINS</h3>
+                        <p class="catalogue-price-tag">$3.60</p>
+                    </article>
+                    <article class="muffin-catalogue" data-price="4.30" data-popularity="50" data-name="Carrot Muffins" data-description="Enjoy the unique flavor of our Carrot Muffins, a perfect blend of sweet and savory." id="carrot">
+                        <h3 class="catalogue-label">CARROT MUFFINS</h3>
+                        <p class="catalogue-price-tag">$4.30</p>
+                    </article>
+                    <article class="muffin-catalogue" data-price="5.10" data-popularity="40" data-name="Blueberry Muffins" data-description="Relish the burst of blueberries in our Blueberry Muffins, a delightful treat any time of the day." id="blueberry">
+                        <h3 class="catalogue-label">BLUEBERRY MUFFINS</h3>
+                        <p class="catalogue-price-tag">$5.10</p>
+                    </article>
+                    <article class="muffin-catalogue" data-price="6.00" data-popularity="30" data-name="Pumpkin Muffins" data-description="Taste the essence of autumn with our Pumpkin Muffins, a seasonal favorite that warms the heart." id="pumpkin">
+                        <h3 class="catalogue-label">PUMPKIN MUFFINS</h3>
+                        <p class="catalogue-price-tag">$6.00</p>
+                    </article>
+                </div>
+            </div>
+        </main>
+        <footer class="footer">
+            <section class="contact-footer">
+                <h3>Contact</h3>
+                <p>MuffinBakger@gmail.com</p>
+                <p>07 4444 2222</p>
+                <p>7 Bakery Street <br>Muffin Queensland<br>4209 Australia</p>
+            </section>
+            <section class="about-us-footer">
+                <h3>About Us</h3>
+                <p>At our heartwarming muffin bakery, we knead 
+                    love into every batch, crafting homemade
+                    delights that whisk you away to a world
+                    of comfort and joy with every bite.
+                </p>
+            </section>
+            <section class="terms-conditions-footer">
+                <h3>Terms & Conditions</h3>
+            </section>
+        </footer>
+        <script src="js/all-items.js"></script>
+    </body>
+</html>

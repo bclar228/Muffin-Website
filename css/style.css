@@ -1,0 +1,124 @@
+/* Code for the navigation bar */
+
+.bar {
+    position: fixed; /* Fixed positioning to keep the navigation bar always visible */
+    top: 0; /* Position at the top of the viewport */
+    width: 100%; /* Ensure it spans the full width */
+    z-index: 1000; /* High z-index to ensure it stays on top of other content */
+    background:#E8B4B8; /* Background color */
+    box-shadow: 0px 0px 10px rgb(212, 211, 211); /* Box shadow for some depth */
+    padding: 1rem 0; /* Padding at the top and bottom */
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+}
+
+.nav-list {
+    width: 100%; /* Full width to match parent */
+    margin: 0;
+    padding: 0;
+    list-style-type: none; /* Remove default list styling */
+    display: flex;
+    justify-content: flex-end; 
+}
+
+.nav-item {
+    margin-right: 7vw;
+}
+
+.nav-item:last-child {
+    margin-right: 4vw;
+}
+
+.nav-item a {
+    text-decoration: none;
+    color: white;
+    transition: all 200ms ease-in;
+    font-size: min(max(0.7rem, 1.5vw), 2rem); 
+}
+
+.nav-item a:hover {
+    color: black;
+}
+
+.nav-item-current-page a {
+    margin-right: 7vw;
+    color: black; 
+    font-weight: bold;
+    text-decoration: none;
+    transition: all 200ms ease-in;
+    font-size: min(max(0.7rem, 1.5vw), 2rem); 
+}
+
+/* Code for the downwards button */
+
+.circle {
+    width: min(10vw, 150px); /* Width grows with viewport, but not beyond 150px */
+    height: min(10vw, 150px); /* Height grows with viewport, but not beyond 150px */
+    min-width: 70px; /* Minimum width of the circle */
+    min-height: 70px; /* Minimum height of the circle */
+    background-color: #e8b4b8; /* Pink background color */
+    border-radius: 50%; /* Rounds the button into a circle */
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 2vh;
+    border: min(0.5vw, 5px) solid white; /* White border, 0.5vw or max of 1px */
+    box-shadow: 0px 5px 10px rgba(0, 0, 0, 0.2); /* Box shadow for 3D effect */
+    cursor: pointer; /* Changes the cursor to a pointer to indicate it's clickable */
+    outline: none; /* Removes default focus outline */
+}
+
+.circle::before,
+.circle::after {
+    content: '';
+    position: absolute;
+    width: min(0.2vw, 8px); /* Width is 0.2vw or max of 3px */
+    height: min(5vw, 90px); /* Height is 5vw or max of 30px */
+    max-width: min(0.2vw, 10px);
+    max-height: min(5vw, 60px);
+    background-color: white; /* Color of the arrow lines */
+    bottom: min(2.5vw, 20px); /* Positioning from the bottom */
+}
+
+.circle::before {
+    transform: rotate(45deg) translate(-50%);
+    transform-origin: 0 100%;
+}
+
+.circle::after {
+    transform: rotate(-45deg) translate(50%);
+    transform-origin: 100% 100%;
+}
+
+/* Interactive states */
+.circle:hover {
+    background-color: #d9a0a3; /* Slightly darker shade of pink on hover */
+    border: min(0.5vw, 5px) solid white; /* White border, 0.5vw or max of 1px */
+    box-shadow: 0px 5px 10px rgba(0, 0, 0, 0.2); /* Box shadow for 3D effect */
+}
+
+.circle:active {
+    background-color: #c88a8d; /* Even darker shade of pink when active */
+    border: min(0.5vw, 5px) solid white; /* White border, 0.5vw or max of 1px */
+    box-shadow: 0px 5px 10px rgba(0, 0, 0, 0.2); /* Box shadow for 3D effect */
+}
+
+/* Footer stays at the bottom */
+
+.footer {
+    grid-row: 3;
+    width: 100%;
+    display: flex;
+    justify-content: space-around;
+    /* align-items: ; */
+    background-color: #A49393;
+    gap: 2vw;
+    width: 100%;
+    box-sizing: border-box;
+    padding: 20px;
+    color: white;
+    font-size: clamp(0.8rem, 2vh, 1rem); /* Will scale with the window size, with a minimum of 0.8rem and a maximum of 1rem */
+    flex-shrink: 0;
+}
